@@ -1,0 +1,40 @@
+/*----- constants -----*/
+constant of an empty board that is an array containing 9 values that will be translated into the board 
+define win conditions (8 conditions)
+    player 1 choices are '1'
+    if the board array matches any of the win conditions, declare a win
+    if board[1][2][3] = [1][1][1]
+        declare win
+        **the code must ONLY look for the 1s in the array, the -1s and 0s are irrelevant**
+        
+array of lose condiitons (8 conditions)
+    player 2 choices are '2'
+    if the board matches any of the lose conditions, declare a lose
+
+/*----- app's state (variables) -----*/
+init
+gameStart
+inGame
+    pOne turn
+    pTwo turn
+gameEnd
+
+/*----- cached element references -----*/
+
+
+/*----- event listeners -----*/
+event listener for each button to manipulate array to +1 or -1
+
+/*----- functions -----*/
+function pOneWins(){
+
+}
+function pTwoWins(){
+
+}
+function pOneMove(){
+    changes the value of the board array to 1
+} 
+function pTwoMove(){
+    changes the value of the board array to -1
+}
