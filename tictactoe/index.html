@@ -5,13 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
-    <script defer src='/js/main.js'></script>
+    <script defer src='js/main.js'></script>
+    <link rel='stylesheet' href='css/main.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        This is the start of the game.
+        <h1>This is Tic Tac Heckin' Toe.</h1>
+        <button class="gameInit">are you ready to start?</button>
     </header>
-
+    <div class="scoreBoard"><span class="scoreAlpha">Player One's score is:&nbsp;<span id="pAlphaScore"></span></span>
+        <span class="scoreBravo">Player Two's score is:&nbsp;<span id="pBravoScore"></span></span>
+    </div>
+    <br />
+    <div class="board" id="main-board">
+        <div class="board" id="row-1">
+            <button class="pieces" id="0"><img src="https://i.imgur.com/GM5xkQM.png"></button>
+            <button class="pieces" id="1"><img src="https://i.imgur.com/GM5xkQM.png"></button>
+            <button class="pieces" id="2"><img src="https://i.imgur.com/GM5xkQM.png"></button>
+        </div>
+        <div class="board" id="row-2">
+            <button class="pieces" id="3"><img src="https://i.imgur.com/GM5xkQM.png"></button>
+            <button class="pieces" id="4"><img src="https://i.imgur.com/GM5xkQM.png"></button>
+            <button class="pieces" id="5"><img src="https://i.imgur.com/GM5xkQM.png"></button>
+        </div>
+        <div class="board" id="row-3">
+            <button class="pieces" id="6"><img src="https://i.imgur.com/GM5xkQM.png"></button>
+            <button class="pieces" id="7"><img src="https://i.imgur.com/GM5xkQM.png"></button>
+            <button class="pieces" id="8"><img src="https://i.imgur.com/GM5xkQM.png"></button>
+        </div>
+    </div>
+    <h4></h4>
+    <br />
+    <div><button class="settings">new game?</button></div>
+    
+<div class="hiddenElementPreLoad">
+    <img src="https://i.imgur.com/fjGfZ3m.png">
+    <img src="https://i.imgur.com/WPlpor8.png">
+</div>
     
 </body>
 </html>

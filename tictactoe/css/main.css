@@ -1,0 +1,79 @@
+header {
+    text-align: center;
+}
+body {
+    text-align: center;
+    background-repeat: repeat;
+    background-color:mistyrose;
+}
+img {
+    max-width: 100px;
+    max-height: 100px;
+}
+.settings {
+    font-size: 20px;
+    margin: 0 0 0 0;
+}
+#main-board {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 10px 10px 10px ;
+}
+button {
+    text-align: center;
+}
+.board {
+    margin: 0 auto;
+    background:black;
+    width: 450px;
+}
+.pieces{ 
+    background: lightgray;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+}
+.scoreAlpha{
+    color:red;
+    padding: 0px 10px 0px 10px;
+}
+.scoreBravo{
+    color: blue;
+    padding: 0px 10px 0px 10px;
+}
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 0 0 0 0;
+}
+h1{
+    font-family: 'Raleway', sans-serif;
+    font-style: bold;
+    font-size: 35px;
+}
+.scoreAlpha{
+    font-family: 'Montserrat', sans-serif;
+}
+.scoreBravo{
+    font-family: 'Montserrat', sans-serif;
+}
+#pAlphaScore{
+    font-weight: 900;
+    font-size: 20px;
+}
+#pBravoScore{
+    font-weight: 900;
+    font-size: 20px;
+}
+.gameInit{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+pieces{
+    width:100px;
+}
+.hiddenElementPreLoad{
+    visibility: hidden;
+    position:relative;
+    top: 10px;
+    right: 10px;
+}
