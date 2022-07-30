@@ -23,11 +23,11 @@
         <h1>This is Tic Tac Heckin' Toe.</h1>
         <button class="gameInit">are you ready to start?</button>
     </header>
-    <div class="scoreBoard"><span class="scoreAlpha">Player One's score is:&nbsp;<span id="pAlphaScore"></span></span>
-        <span class="scoreBravo">Player Two's score is:&nbsp;<span id="pBravoScore"></span></span>
+    <div class="scoreBoard"><span class="scoreAlpha" style="visibility:hidden">Player One's score is:&nbsp;<span id="pAlphaScore"></span></span>
+        <span class="scoreBravo" style="visibility:hidden">Player Two's score is:&nbsp;<span id="pBravoScore"></span></span>
     </div>
     <br />
-    <div class="board" id="main-board">
+    <div class="board" id="main-board" style="visibility:hidden">
         <div class="board" id="row-1">
             <button class="pieces" id="0"><img src="https://i.imgur.com/GM5xkQM.png"></button>
             <button class="pieces" id="1"><img src="https://i.imgur.com/GM5xkQM.png"></button>
@@ -46,7 +46,7 @@
     </div>
     <h4></h4>
     <br />
-    <div><button class="settings">new game?</button></div>
+    <div><button class="settings" style="visibility:hidden">new game?</button></div>
     
 <div class="hiddenElementPreLoad">
     <img src="https://i.imgur.com/fjGfZ3m.png">

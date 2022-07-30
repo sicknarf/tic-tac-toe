@@ -18,7 +18,7 @@ const players = {
     }
 }
 
-disable();
+
 
 /*this  is  a vizualization of win conditions for my use.
 const alphaWin = [
@@ -72,58 +72,47 @@ document.querySelector('#pBravoScore').innerText = pBravoScore;
 
 /*----- event listeners -----*/
 let gameBoardId = null;
-button0.addEventListener("click", function(){
+button0.addEventListener("click", function(event){
     gameBoardId = 0;
     gameplayAction();
-    console.log(gameBoard)
 })
 button1.addEventListener("click", function(){
     gameBoardId = 1;
     gameplayAction();
-    console.log(gameBoard)
 })
 button2.addEventListener("click", function(){
     gameBoardId = 2;
     gameplayAction();
-    console.log(gameBoard)
 })
 button3.addEventListener("click", function(){
     gameBoardId = 3;
     gameplayAction();
-    console.log(gameBoard)
 })
 button4.addEventListener("click", function(){
     gameBoardId = 4;
     gameplayAction();
-    console.log(gameBoard)
 })
 button5.addEventListener("click", function(){
     gameBoardId = 5;
     gameplayAction();
-    console.log(gameBoard)
 })
 button6.addEventListener("click", function(){
     gameBoardId = 6;
     gameplayAction();
-    console.log(gameBoard)
 })
 button7.addEventListener("click", function(){
     gameBoardId = 7;
     gameplayAction();
-    console.log(gameBoard)
 })
 button8.addEventListener("click", function(){
     gameBoardId = 8;
     gameplayAction();
-    console.log(gameBoard)
 })
 resetButton.addEventListener("click", function (){
     gameBoard = [0, 0, 0,
                  0, 0, 0,
                  0, 0, 0,];
-    console.log("game reset.");
-    turn = 1
-    console.log(gameBoard);
+    turn = 1;
     enableButton();
     document.querySelector('h4').innerHTML = ''
     boardUpdater();
@@ -281,7 +270,7 @@ function winCheck(){
         pBravoWins()
     }
 }
-
+//originally designed to hide the elements, but because of defer, it would blink onscreen until JS loaded. styling into the HTML.
 function disable() {
     document.getElementsByClassName('scoreAlpha')[0].style.visibility='hidden'; 
     document.getElementsByClassName('scoreBravo')[0].style.visibility='hidden'; 
