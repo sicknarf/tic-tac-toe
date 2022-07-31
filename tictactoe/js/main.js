@@ -197,6 +197,7 @@ function gameplayAction() {
         pBravoMove();
         turn++
     } else if (turn === 9){
+        pAlphaMove();
         cheating();
         boardUpdater();
         document.querySelector('h4').innerText = 'it\'s a tie!';
