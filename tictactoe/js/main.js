@@ -202,7 +202,7 @@ function gameplayAction() {
         document.querySelector('h4').innerText = 'it\'s a tie!';
         enableButton();
         document.getElementsByClassName('settings')[0].style.visibility='visible'; 
-
+        winCheck();
     } else {
         pAlphaMove();
         turn++
@@ -217,6 +217,12 @@ function cheating(){
         }
     }
 }
+
+// gameBoard.forEach(function(){
+//     if (gameBoard[i] === 0) {
+//         gameBoard[i] = -1;
+//     }
+// });
 
 function winCheck(){
     //player one check
