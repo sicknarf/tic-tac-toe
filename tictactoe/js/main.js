@@ -198,7 +198,6 @@ function gameplayAction() {
         turn++
     } else if (turn === 9){
         pAlphaMove();
-        cheating();
         boardUpdater();
         document.querySelector('h4').innerText = 'it\'s a tie!';
         enableButton();
@@ -209,15 +208,6 @@ function gameplayAction() {
         turn++
     }
     }
-
-//the reason I named this function cheating is because I cannot figure out how to get the last piece to change, this is purely aesthetic and not gameplay related.
-function cheating(){
-    for(let i = 0; i < gameBoard.length; i++){
-        if (gameBoard[i] === 0) {
-            gameBoard[i] = -1;
-        }
-    }
-}
 
 // gameBoard.forEach(function(){
 //     if (gameBoard[i] === 0) {
