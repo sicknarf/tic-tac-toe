@@ -71,6 +71,7 @@ h1{
 pieces{
     width:100px;
 }
+/* I had issues with images having a slight delay in loading while making a move, so I preload them and move them off screen. */
 .hiddenElementPreLoad{
     position:absolute;
     top: -200px;

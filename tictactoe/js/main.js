@@ -12,10 +12,6 @@ let pBravoScore = 0;
 let gameBoardId = null;
 let turn = 1
 
-/*----- cached element references -----*/
-document.querySelector('#pAlphaScore').innerText = pAlphaScore;
-document.querySelector('#pBravoScore').innerText = pBravoScore;
-
 /*----- event listeners -----*/
 resetButton.addEventListener("click", init)
 document.querySelector('.gameInit').addEventListener('click', init);
@@ -56,7 +52,7 @@ function pBravoMove(){
     }
     boardUpdater();
 }
-function winCheck(){
+function winCheck(){ 
     if (gameBoard[0] === 1 && gameBoard[1] === 1 && gameBoard[2] === 1){
         pAlphaWins();
     }
@@ -106,7 +102,7 @@ function winCheck(){
         pBravoWins()
     }
 }
-function init(){
+function init(){ // initialization function to start/reset the game. Scores are NOT reset intentionally.
     document.getElementsByClassName('scoreAlpha')[0].style.visibility='visible'; 
     document.getElementsByClassName('scoreBravo')[0].style.visibility='visible'; 
     document.getElementsByClassName('board')[0].style.visibility='visible'; 
@@ -117,12 +113,12 @@ function init(){
     boardUpdater();
     document.querySelector('h4').innerHTML = ''
     document.getElementsByClassName('settings')[0].style.visibility='hidden'; 
-    for (let i = 0; i <gamePlayButton.length; i++) {
+    for (let i = 0; i < gamePlayButton.length; i++) {
         gamePlayButton[i].disabled = false
     }
 }
-function clickToPlay(arg){
-    gameBoardId = boardTranslator.indexOf(arg);
+function clickToPlay(clickedBox){ //set up the HTML to trigger this function whenever a box is clicked.
+    gameBoardId = boardTranslator.indexOf(clickedBox);
     if (turn % 2 === 0) {
         pBravoMove();
         winCheck();
@@ -140,7 +136,7 @@ function clickToPlay(arg){
         turn++
     }
 }
-function boardUpdater(){
+function boardUpdater(){ // updates the game board to have the appropriate images depending on who played
     for (let i = 0 ; i < 9; i++) {
         if (gameBoard[i] === 1){
             document.getElementById(boardTranslator[i]).innerHTML = '<img src="https://i.imgur.com/fjGfZ3m.png">'
@@ -151,8 +147,8 @@ function boardUpdater(){
         }
     }
 }
-function disableButton(){
-    for (let i = 0; i <gamePlayButton.length; i++) {
+function disableButton(){ // disables the game board from future play at the end of a game
+    for (let i = 0; i < gamePlayButton.length; i++) {
     gamePlayButton[i].disabled = true
 }
 }
