@@ -5,39 +5,49 @@ let gameBoard = [0, 0, 0,
 const boardTranslator = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight"] //to return the proper index to manipulate gameBoard
 const resetButton = document.querySelector('.settings')
 const gamePlayButton = document.querySelectorAll('.pieces');
+const winConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
 
 /*----- app's state (variables) -----*/
 let pAlphaScore = 0;
 let pBravoScore = 0;
 let gameBoardId = null;
-let turn = 1
+let turn = 1;
 
 /*----- event listeners -----*/
-resetButton.addEventListener("click", init)
+resetButton.addEventListener("click", init);
 document.querySelector('.gameInit').addEventListener('click', init);
 
 /*----- functions -----*/
 function pAlphaWins(){ // adds 1 to player score and updates the page
     pAlphaScore = pAlphaScore + 1;
     document.querySelector('#pAlphaScore').innerText = pAlphaScore;
-    document.querySelector('h4').innerHTML = '<span style="color:red">Player One has won the game!</span>'
+    document.querySelector('h4').innerHTML = '<span style="color:red">Player One has won the game!</span>';
     document.getElementsByClassName('settings')[0].style.visibility='visible'; 
-    disableButton()
+    disableButton();
 }
 function pBravoWins(){ // adds 1 to player score and updates the page
-    pBravoScore = pBravoScore + 1
+    pBravoScore = pBravoScore + 1;
     document.querySelector('#pBravoScore').innerText= pBravoScore;
-    document.querySelector('h4').innerHTML = '<span style="color:blue">Player Two has won the game!</span>'
+    document.querySelector('h4').innerHTML = '<span style="color:blue">Player Two has won the game!</span>';
     document.getElementsByClassName('settings')[0].style.visibility='visible'; 
-    disableButton()
+    disableButton();
 }
 function pAlphaMove(){ // checks that the chosen spot is playable, then updates
     if (gameBoard[gameBoardId] === 0){
         gameBoard[gameBoardId] = 1;
-        document.querySelector('h4').innerHTML = ''
+        document.querySelector('h4').innerHTML = '';
     } else {
-        document.querySelector('h4').innerHTML = 'don\'t be cheeky, you can\'t play there!'
-        turn = turn - 1
+        document.querySelector('h4').innerHTML = 'don\'t be cheeky, you can\'t play there!';
+        turn = turn - 1;
     }
     boardUpdater();
     gameBoardId = null;
@@ -45,61 +55,20 @@ function pAlphaMove(){ // checks that the chosen spot is playable, then updates
 function pBravoMove(){
     if (gameBoard[gameBoardId] === 0){
         gameBoard[gameBoardId] = -1;
-        document.querySelector('h4').innerHTML = ''
+        document.querySelector('h4').innerHTML = '';
     } else {
-        document.querySelector('h4').innerHTML = 'don\'t be cheeky, you can\'t play there!'
-        turn = turn - 1
+        document.querySelector('h4').innerHTML = 'don\'t be cheeky, you can\'t play there!';
+        turn = turn - 1;
     }
     boardUpdater();
 }
 function winCheck(){ 
-    if (gameBoard[0] === 1 && gameBoard[1] === 1 && gameBoard[2] === 1){
-        pAlphaWins();
-    }
-    if (gameBoard[0] === 1 && gameBoard[4] === 1 && gameBoard[8] === 1){
-        pAlphaWins()
-    }
-    if (gameBoard[0] === 1 && gameBoard[3] === 1 && gameBoard[6] === 1){
-        pAlphaWins()
-    }
-    if (gameBoard[1] === 1 && gameBoard[4] === 1 && gameBoard[7] === 1){
-        pAlphaWins()
-    }
-    if (gameBoard[2] === 1 && gameBoard[5] === 1 && gameBoard[8] === 1){
-        pAlphaWins()
-    }
-    if (gameBoard[2] === 1 && gameBoard[4] === 1 && gameBoard[6] === 1){
-        pAlphaWins()
-    }
-    if (gameBoard[3] === 1 && gameBoard[4] === 1 && gameBoard[5] === 1){
-        pAlphaWins()
-    }
-    if (gameBoard[6] === 1 && gameBoard[7] === 1 && gameBoard[8] === 1){
-        pAlphaWins()
-    }
-    if (gameBoard[0] === -1 && gameBoard[1] === -1 && gameBoard[2] === -1){
-        pBravoWins()
-    }
-    if (gameBoard[0] === -1 && gameBoard[4] === -1 && gameBoard[8] === -1){
-        pBravoWins()
-    }
-    if (gameBoard[0] === -1 && gameBoard[3] === -1 && gameBoard[6] === -1){
-        pBravoWins()
-    }
-    if (gameBoard[1] === -1 && gameBoard[4] === -1 && gameBoard[7] === -1){
-        pBravoWins()
-    }
-    if (gameBoard[2] === -1 && gameBoard[5] === -1 && gameBoard[8] === -1){
-        pBravoWins()
-    }
-    if (gameBoard[2] === -1 && gameBoard[4] === -1 && gameBoard[6] === -1){
-        pBravoWins()
-    }
-    if (gameBoard[3] === -1 && gameBoard[4] === -1 && gameBoard[5] === -1){
-        pBravoWins()
-    }
-    if (gameBoard[6] === -1 && gameBoard[7] === -1 && gameBoard[8] === -1){
-        pBravoWins()
+    for (let i = 0; i < winConditions.length; i++) {
+        if (gameBoard[winConditions[i][0]] + gameBoard[winConditions[i][1]] + gameBoard[winConditions[i][2]] === 3) {
+            pAlphaWins(); 
+        } else if (gameBoard[winConditions[i][0]] + gameBoard[winConditions[i][1]] + gameBoard[winConditions[i][2]] === -3) {
+            pBravoWins(); 
+        }
     }
 }
 function init(){ // initialization function to start/reset the game. Scores are NOT reset intentionally.
@@ -111,18 +80,18 @@ function init(){ // initialization function to start/reset the game. Scores are 
     gameBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0,];
     turn = 1;
     boardUpdater();
-    document.querySelector('h4').innerHTML = ''
+    document.querySelector('h4').innerHTML = '';
     document.getElementsByClassName('settings')[0].style.visibility='hidden'; 
     for (let i = 0; i < gamePlayButton.length; i++) {
         gamePlayButton[i].disabled = false
-    }
+    };
 }
-function clickToPlay(clickedBox){ //set up the HTML to trigger this function whenever a box is clicked.
+function clickToPlay(clickedBox){ // I set up the HTML to trigger this function whenever a box is clicked.
     gameBoardId = boardTranslator.indexOf(clickedBox);
     if (turn % 2 === 0) {
         pBravoMove();
         winCheck();
-        turn++
+        turn++;
     } else if (turn === 9){
         pAlphaMove();
         boardUpdater();
